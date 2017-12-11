@@ -26,8 +26,13 @@ public class ShiroController {
     private UserMapper userMapper;
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String loginForm() {
+    public String login() {
         return "login";
+    }
+
+    @RequestMapping(value = "/hello", method = RequestMethod.GET)
+    public String loginForm() {
+        return "login_bak";
     }
 
 /*

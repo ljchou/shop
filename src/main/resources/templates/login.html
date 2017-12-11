@@ -1,20 +1,62 @@
 <!DOCTYPE HTML>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3" xmlns:form="http://www.w3.org/1999/html">
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+      xmlns:form="http://www.w3.org/1999/html">
 <head>
-    <title>login</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <!-- Loading Bootstrap -->
+    <link href="/bootstrap/css/bootstrap.css" rel="stylesheet"/>
+    <link href="/css/flat-ui.css" rel="stylesheet"/>
+    <link href="/css/demo.css" rel="stylesheet"/>
+    <link rel="shortcut icon" href="/images/favicon.ico"/>
+
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery-1.8.3.min.js"></script>
+    <script src="js/jquery-ui-1.10.3.custom.min.js"></script>
+    <script src="js/jquery.ui.touch-punch.min.js"></script>
+    <script src="js/application.js"></script>
+    <script src="shop/js/login.js"></script>
+    <script src="js/bootstrap-select.js"></script>
+    <script src="js/bootstrap-switch.js"></script>
+    <script src="js/flatui-checkbox.js"></script>
+    <script src="js/flatui-radio.js"></script>
+    <script src="js/jquery.tagsinput.js"></script>
+    <script src="js/jquery.placeholder.js"></script>
+    <script src="js/jquery.stacktable.js"></script>
+
 </head>
 
 <body>
-<h1 th:inline="text">Hello.v.2</h1>
-<p th:text="${hello}"></p>
+<div class="container" style="margin-top: 100px">
+<div class="login">
+    <div class="login-screen">
+        <div class="login-icon">
+            <img src="/images/login/icon.png" alt="欢迎您"/>
+            <h4>欢迎您 <small>请登录</small></h4>
+        </div>
+    <form id="loginForm" th:action="@{/login}" method="post">
+        <div class="login-form">
+            <div class="form-group">
+                <input type="text" class="form-control login-field" value="" placeholder="工号" name="userName" id="login-name"/>
+                <label class="login-field-icon fui-user" for="login-name"></label>
+            </div>
 
-<form th:action="@{/login}" method="post">
-    用户名：<input type="text" name="userName"/>
-    <br/>
-    密码：<input type="password" name="password"/>
-    <input type="submit" />
-</form>
+            <div class="form-group">
+                <input type="password" class="form-control login-field" value="" placeholder="密码" name="password"  id="login-pass"/>
+                <label class="login-field-icon fui-lock" for="login-pass"></label>
+            </div>
+
+            <a class="btn btn-primary btn-lg btn-block" onclick="login()">登录</a>
+            <span class="login-message" th:text="${message}"></span>
+            <a class="login-link" href="#">忘记密码?</a>
+        </div>
+    </form>
+    </div>
+</div>
+</div>
+
 </body>
+
+
 </html>
